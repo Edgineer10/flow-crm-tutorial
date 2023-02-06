@@ -9,7 +9,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 @Route("login")
-@PageTitle("Login | Vaadin CRM")
+@PageTitle("TSTIA会員ログイン")
 public class LoginView extends VerticalLayout implements BeforeEnterListener {
 
     private LoginForm login= new LoginForm();
@@ -21,7 +21,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterListener {
 
         login.setAction("login");
 
-        add(new H1("Vaadin CRM"), login);
+        add(new H1("TSTIA会員ログイン"), login);
     }
     @Override
     public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {

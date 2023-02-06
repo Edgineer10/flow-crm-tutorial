@@ -25,9 +25,11 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.annotation.security.RolesAllowed;
 import java.io.ByteArrayInputStream;
 import java.util.Optional;
 
+@RolesAllowed("ADMIN")
 public class PostAdminLayout extends AppLayout {
     private final SecurityService securityService;
 
@@ -46,7 +48,7 @@ public class PostAdminLayout extends AppLayout {
     }*/
 
     private void createHeader() {
-        H1 logo = new H1("Posts Management View");
+        H1 logo = new H1("お知らせデータベース");
         logo.addClassNames("text-l", "m-m");
 
 

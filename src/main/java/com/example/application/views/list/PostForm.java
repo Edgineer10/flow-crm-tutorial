@@ -21,13 +21,13 @@ import java.time.LocalDate;
 public class PostForm extends FormLayout {
 
     Binder<Post> binder = new BeanValidationBinder<>(Post.class);
-    TextField postTitle = new TextField("Title");
-    TextArea postDesc = new TextArea("Description");
-    DatePicker postDate = new DatePicker("Post Date");
+    TextField postTitle = new TextField("タイトル");
+    TextArea postDesc = new TextArea("内容");
+    DatePicker postDate = new DatePicker("日付");
 
-    Button save = new Button("Save");
-    Button delete = new Button("Delete");
-    Button close = new Button("Cancel");
+    Button save = new Button("保存");
+    Button delete = new Button("デェリート");
+    Button close = new Button("キャンセル");
     private Post post;
 
     public PostForm() {
