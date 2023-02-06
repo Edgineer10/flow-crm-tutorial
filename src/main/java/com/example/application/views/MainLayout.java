@@ -30,8 +30,7 @@ public class MainLayout extends AppLayout {
 
 
         addToDrawer(new VerticalLayout(
-                contactlistLink,postlistLink,
-                new RouterLink("Dashboard", DashboardView.class)
+                contactlistLink,postlistLink
         ));
     }
 
