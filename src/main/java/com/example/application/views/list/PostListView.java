@@ -101,12 +101,12 @@ public class PostListView extends VerticalLayout {
     }
 
     private HorizontalLayout getToolbar() {
-        filterText.setPlaceholder("Filter by name...");
+        filterText.setPlaceholder("キーワードでサーチ");
         filterText.setClearButtonVisible(true);
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
         filterText.addValueChangeListener(e->updateList());
 
-        Button addPostButton = new Button("Add Post");
+        Button addPostButton = new Button("新たなポストを入力");
         addPostButton.addClickListener(click -> addContact());
         HorizontalLayout toolbar = new HorizontalLayout(filterText, addPostButton);
         toolbar.addClassName("toolbar");
