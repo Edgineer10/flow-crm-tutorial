@@ -1,11 +1,8 @@
 package com.example.application.views.list;
 
 
-import com.example.application.data.entity.Contact;
 import com.example.application.data.entity.Post;
-import com.example.application.data.service.CrmService;
 import com.example.application.data.service.PostsService;
-import com.example.application.views.MainLayout;
 import com.example.application.views.PostAdminLayout;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
@@ -16,9 +13,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import org.springframework.security.access.prepost.PreAuthorize;
 
-import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import java.time.LocalDate;
 
@@ -26,7 +21,7 @@ import java.time.LocalDate;
 @Route(value = "", layout = PostAdminLayout.class)
 @PageTitle("Posts | TSTIA")
 public class PostListView extends VerticalLayout {
-    Grid<Post> grid = new Grid<>(Post.class);
+    Grid<Post> grid = new Grid<>(Post.class,false);
     TextField filterText = new TextField();
 
     PostForm form;
@@ -85,11 +80,9 @@ public class PostListView extends VerticalLayout {
     private void configureGrid() {
         grid.addClassNames("contact-grid");
         grid.setSizeFull();
-
-        grid.setColumns("postTitle", "postDesc", "postDate");
-        grid.getColumnByKey("postTitle").setHeader("Title");
-        grid.getColumnByKey("postDesc").setHeader("Description");
-        grid.getColumnByKey("postDate").setHeader("Date");
+        grid.addColumn(Post::getPostTitle).setHeader("Title");
+        grid.addColumn(Post::getPostDesc).setHeader("Description");
+        grid.addColumn(Post::getPostDate).setHeader("Date");
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
         grid.asSingleSelect().addValueChangeListener(event ->
                 editPost(event.getValue()));

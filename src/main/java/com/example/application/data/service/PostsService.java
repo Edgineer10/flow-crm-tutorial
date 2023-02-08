@@ -1,6 +1,5 @@
 package com.example.application.data.service;
 
-import com.example.application.data.entity.Contact;
 import com.example.application.data.entity.Post;
 import com.example.application.data.repository.PostRepository;
 import org.springframework.stereotype.Service;
