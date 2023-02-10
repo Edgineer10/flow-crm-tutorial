@@ -80,9 +80,9 @@ public class PostListView extends VerticalLayout {
     private void configureGrid() {
         grid.addClassNames("contact-grid");
         grid.setSizeFull();
-        grid.addColumn(Post::getPostTitle).setHeader("Title");
-        grid.addColumn(Post::getPostDesc).setHeader("Description");
-        grid.addColumn(Post::getPostDate).setHeader("Date");
+        grid.addColumn(Post::getPostTitle).setHeader("タイトル");
+        grid.addColumn(Post::getPostDesc).setHeader("内容");
+        grid.addColumn(Post::getPostDate).setHeader("日付");
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
         grid.asSingleSelect().addValueChangeListener(event ->
                 editPost(event.getValue()));
