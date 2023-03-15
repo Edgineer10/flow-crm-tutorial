@@ -18,7 +18,7 @@ import javax.annotation.security.RolesAllowed;
 import java.time.LocalDate;
 
 @RolesAllowed("ADMIN")
-@Route(value = "", layout = PostAdminLayout.class)
+@Route(value = "/list", layout = PostAdminLayout.class)
 @PageTitle("Posts | TSTIA")
 public class PostListView extends VerticalLayout {
     Grid<Post> grid = new Grid<>(Post.class,false);
@@ -94,8 +94,10 @@ public class PostListView extends VerticalLayout {
         } else {
             form.setPost(post);
             form.setVisible(true);
-            form.postDate.setValue(LocalDate.now());
             addClassName("editing");
+            if(post.getPostDate()==null){
+                form.postDate.setValue(LocalDate.now());
+            }
         }
     }
 

@@ -23,7 +23,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
         offlinePath="offline.html",
         iconPath = "icons/tstia.png",
         offlineResources = { "./images/offline.png"}
+
 )
+
 
 public class Application implements AppShellConfigurator {
 
