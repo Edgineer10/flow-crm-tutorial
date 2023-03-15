@@ -1,0 +1,11 @@
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(www\.http://tstia\.la\.coocan\.jp)(:80)? [NC]
+RewriteRule ^(.*) http://http://tstia.la.coocan.jp/$1 [R=301,L]
+order deny,allow
+
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^.*/index.html
+RewriteRule ^(.*)index.html$ http://tstia.la.coocan.jp/$1 [R=301,L]
